@@ -2,6 +2,12 @@
 
 A Cross Framework Javascript State Management Library using rxjs
 
+## Install Peer Dependency ( in case not installed already )
+
+```javascript
+  npm i rxjs
+```
+
 ## Steps to Install
 
 ```javascript
