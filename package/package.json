@@ -1,0 +1,18 @@
+{
+  "name": "reactive-state",
+  "version": "0.0.1",
+  "description": "A Cross Framework Javascript State Management Library using rxjs",
+  "main": "src/ReactiveState.js",
+  "typings": "src/ReactiveState.d.ts",
+  "repository": "https://github.com/fateh999/reactive-state.git",
+  "author": "Fateh Farooqui",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "src/ReactiveState.ts",
+    "src/ReactiveState.d.ts"
+  ],
+  "peerDependencies": {
+    "rxjs": "^6.5.5"
+  }
+}
