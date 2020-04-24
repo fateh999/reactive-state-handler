@@ -6,7 +6,7 @@ class ReactiveState {
   }
   setValue(keyName, value) {
     const currentState = this.subscriber$.getValue();
-    this.subscriber$.next({}, ...currentState, [keyName], value);
+    this.subscriber$.next({ ...currentState, [keyName]: value });
   }
 
   getValue(keyName) {
@@ -16,7 +16,7 @@ class ReactiveState {
 
   setState(values) {
     const currentState = this.subscriber$.getValue();
-    this.subscriber$.next({}, ...currentState, ...values);
+    this.subscriber$.next({ ...currentState, ...values });
   }
   getState() {
     return this.subscriber$.getValue();
