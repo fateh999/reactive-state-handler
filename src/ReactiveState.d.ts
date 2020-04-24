@@ -7,5 +7,6 @@ declare class ReactiveState {
   getValue(keyName: string): any;
   setState(values: any): void;
   getState(): any;
+  resetState(): any;
 }
 export default ReactiveState;
