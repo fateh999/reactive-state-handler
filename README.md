@@ -2,6 +2,14 @@
 
 A Cross Framework Javascript State Management Library using rxjs
 
+[![NPM](https://nodei.co/npm/reactive-state-handler.png?downloads=true)](https://nodei.co/npm/reactive-state-handler/)
+
+## Install Peer Dependency ( in case not installed already )
+
+```javascript
+  npm i rxjs
+```
+
 ## Steps to Install
 
 ```javascript
