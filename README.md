@@ -25,20 +25,20 @@ export default new ReactiveState({
 
 2. Import in any file and then you can use any of it's methods & properties listed below
 
-```javascript
+```typescript
 // Used for listening to state changes
 ReactiveStateHandler.subscriber$.subscribe((state: any) => {
   console.log("State Changed", state);
 });
 
 // Used for setting a single value in our state
-ReactiveStateHandler.setValue((keyName: string), (value: any));
+ReactiveStateHandler.setValue(keyName: string, value: any);
 
 // Returns single value from state
-ReactiveStateHandler.getValue((keyName: string));
+ReactiveStateHandler.getValue(keyName: string);
 
 // Used for setting multiple values in the state
-ReactiveStateHandler.setState((values: any));
+ReactiveStateHandler.setState(values: any);
 
 // Returns current state
 ReactiveStateHandler.getState();
