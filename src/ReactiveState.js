@@ -2,7 +2,7 @@ import { BehaviorSubject } from 'rxjs';
 class ReactiveState {
   constructor(_initialState) {
     this.initialState = _initialState;
-    this.subscriber$ = new BehaviorSubject(initialState);
+    this.subscriber$ = new BehaviorSubject(_initialState);
   }
   setValue(keyName, value) {
     const currentState = this.subscriber$.getValue();
