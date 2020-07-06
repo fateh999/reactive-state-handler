@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 declare class ReactiveState {
   initialState: any;
   subscriber$: BehaviorSubject<any>;

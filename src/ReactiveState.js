@@ -1,7 +1,7 @@
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 class ReactiveState {
-  constructor(initialState) {
-    this.initialState = initialState;
+  constructor(_initialState) {
+    this.initialState = _initialState;
     this.subscriber$ = new BehaviorSubject(initialState);
   }
   setValue(keyName, value) {
