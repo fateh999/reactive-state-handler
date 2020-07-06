@@ -1,6 +1,6 @@
 {
   "name": "reactive-state-handler",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A Cross Framework Javascript State Management Library using rxjs",
   "repository": "https://github.com/fateh999/reactive-state-handler.git",
   "author": "Fateh Farooqui",
