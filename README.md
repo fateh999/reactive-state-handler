@@ -21,13 +21,13 @@ A Cross Framework Javascript State Management Library using rxjs
 1. Create a new file (suppose AppStateHandler.js) and initialize your initial state and default export Singleton Class.
 
 ```javascript
-import ReactiveState from 'reactive-state-handler';
+import { ReactiveState } from "reactive-state-handler";
 
 export default new ReactiveState({
   loggedIn: false,
   user: null,
   darkMode: false,
-  jwt: '',
+  jwt: "",
 });
 ```
 
@@ -35,18 +35,12 @@ export default new ReactiveState({
 
 ```typescript
 // Used for listening to state changes
-AppStateHandler.subscriber$.subscribe((state: any) => {
+AppStateHandler.subscriber$.subscribe((state) => {
   console.log("State Changed", state);
 });
 
-// Used for setting a single value in our state
-AppStateHandler.setValue(keyName: string, value: any);
-
-// Returns single value from state
-const value = AppStateHandler.getValue(keyName: string);
-
-// Used for setting multiple values in the state
-AppStateHandler.setState(values: any);
+// Used for setting values in the state
+AppStateHandler.setState(values);
 
 // Returns current state
 const state = AppStateHandler.getState();
@@ -60,47 +54,21 @@ AppStateHandler.resetState();
 Create a custom react hook
 
 ```javascript
-import { useEffect, useRef, useState } from 'react';
+import { useReactiveStateHandler } from "reactive-state";
 
-function useReactiveState(Handler, keyName) {
-  const listenerRef = useRef();
-  const [value, setValue] = useState(
-    keyName ? Handler.getValue(keyName) : Handler.getState()
-  );
-  useEffect(() => {
-    listenerRef.current = Handler.subscriber$.subscribe((state) => {
-      if (keyName) {
-        setValue(state[keyName]);
-      } else {
-        setValue(state);
-      }
-    });
-    return () => {
-      if (listenerRef.current) {
-        listenerRef.current.unsubscribe();
-      }
-    };
-  }, [keyName]);
-
-  return value;
-}
-
-export default useReactiveState;
-```
-
-Now you can easily reuse this generic custom hook, just add this code in the file created in Step 1
-
-```javascript
-export function useAppState(keyName) {
-  return useReactiveState(AppStateHandler, keyName);
+export function useAppState(filterKeys) {
+  return useReactiveStateHandler(AppStateHandler, filterKeys);
 }
 ```
 
 Lastly, just use this in your functional component
 
 ```javascript
-// Returns single value from state
-const value = useAppState('keyName');
+// Returns only values passed in the filterKeys, use this to reduce unnecessary re renders if other state values changes.
+const [{ keyName1, keyName2 }, removeListener, addListener] = useAppState([
+  "keyName1",
+  "keyName2",
+]);
 // Returns current state
-const state = useAppState();
+const [state, removeListener, addListener] = useAppState();
 ```

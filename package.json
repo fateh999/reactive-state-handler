@@ -1,17 +1,25 @@
 {
   "name": "reactive-state-handler",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "A Cross Framework Javascript State Management Library using rxjs",
   "repository": "https://github.com/fateh999/reactive-state-handler.git",
   "author": "Fateh Farooqui",
   "license": "MIT",
   "private": false,
   "files": [
-    "src"
+    "dist"
   ],
-  "main": "src/ReactiveState.js",
-  "types": "src/ReactiveState.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "peerDependencies": {
-    "rxjs": "^6.5.5"
+    "react": "*",
+    "rxjs": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0",
+    "@types/lodash.isequal": "^4.5.5"
   }
 }
